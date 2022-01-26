@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <title>{{ title }} - Your Orders</title>
+    </head>
+    <body>
+        <ul>
+            <li clas="navLink"><a href="/order_list">Home</a></li>
+          </ul>
+        </nav>
+        <hr>
+        <h1>Order List</h1>
+
+        <div class="order_container">           
+            {% for order in orders %}
+            <div class="order">
+                <h2>Dear { {[order.customer_name }}</h2>
+                <h3> Thank you for your order of : <p></p>{order/quantity} x {{ order.product_name }}</h3>
+
+                
+                <a href="orders/{{orders.index(order)}}">Show Order </a>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
